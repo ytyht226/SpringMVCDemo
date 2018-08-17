@@ -1,5 +1,7 @@
 package org.format.demo.controller;
 
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class IndexController implements EnvironmentAware{
 
     @RequestMapping
     public ModelAndView index() {
@@ -16,4 +18,9 @@ public class IndexController {
         return view;
     }
 
+    private Environment environment;
+    @Override
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
 }
