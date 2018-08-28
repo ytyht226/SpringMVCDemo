@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/employee")
@@ -57,6 +60,26 @@ public class EmployeeController {
         }
         employeeService.saveOrUpdate(employee);
         return "redirect:/employee/";
+    }
+
+    @RequestMapping("/xmlOrJson")
+    @ResponseBody
+    public Map<String, Object> xmlOrJson(@RequestBody Employee e) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Employee> list = new ArrayList<>();
+        Employee e1 = new Employee();
+        e1.setAge(1);
+        e1.setId(1);
+        e1.setName("e1");
+
+        Employee e2 = new Employee();
+        e2.setAge(2);
+        e2.setId(2);
+        e2.setName("e2");
+        list.add(e1);
+        list.add(e2);
+        map.put("list", list);
+        return map;
     }
 
 }

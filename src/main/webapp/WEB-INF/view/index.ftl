@@ -7,7 +7,8 @@
 <body>
 
     <h2>Welcome to user SpringMVC</h2>
-    <h3>your welcome param: ${welcome}</h3>
+    <#--<h3>your welcome param: ${welcome}</h3>-->
+    <h3>your welcome param: </h3>
 
 </body>
 </html>
