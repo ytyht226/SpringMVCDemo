@@ -1,5 +1,6 @@
 package org.format.demo.controller;
 
+import org.format.demo.customeditor.CustomEmployeeEditor;
 import org.format.demo.model.Employee;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ public class TestController {
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+
+        binder.registerCustomEditor(Employee.class, new CustomEmployeeEditor());
     }
 
     @RequestMapping("/testRb")
@@ -46,6 +49,14 @@ public class TestController {
     @ResponseBody
     public Date testDate(Date date) {
         return date;
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public Map test(boolean b) {
+        Map map = new HashMap();
+        map.put("b", b);
+        return map;
     }
 
     public static void main(String[] args) {
