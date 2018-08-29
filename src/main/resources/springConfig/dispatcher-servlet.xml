@@ -20,10 +20,15 @@
     <context:component-scan base-package="org.format.demo.controller" />
 
 
-    <!--
     <import resource="classpath:springConfig/viewConfig/jsp.xml"/>
-    -->
-    <import resource="classpath:springConfig/viewConfig/freemarker.xml"/>
+    <!--<import resource="classpath:springConfig/viewConfig/freemarker.xml"/>-->
 
-
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:exclude-mapping path="/login/out"/>-->
+            <!--<mvc:exclude-mapping path="/login/auth"/>-->
+            <!--<bean class="org.format.demo.interceptor.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 </beans>

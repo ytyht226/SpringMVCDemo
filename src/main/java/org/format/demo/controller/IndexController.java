@@ -11,10 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class IndexController implements EnvironmentAware{
 
-    @RequestMapping
+    @RequestMapping(value = {"/", "index"})
     public ModelAndView index() {
         ModelAndView view = new ModelAndView("index");
-        view.addObject("welcome", "hello");
+//        view.addObject("welcome", "hello");
         return view;
     }
 
